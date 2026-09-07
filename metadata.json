@@ -1,0 +1,12 @@
+{
+  "name": "janvani",
+  "description": "India\u0027s unified Digital Public Infrastructure for civic grievances with Multimodal AI auto-triage, 3-tier GIS micro-mapping, e-Aadhaar verification, and 24x7 AI Copilot.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

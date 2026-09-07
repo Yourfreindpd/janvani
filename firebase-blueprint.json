@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "collections": {
+    "users": {
+      "description": "User profiles for authenticated citizens and nodal officers",
+      "fields": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth User ID",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the user",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address",
+          "required": true
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the user",
+          "required": true,
+          "values": ["citizen", "officer", "admin"]
+        },
+        "aadhaarNumber": {
+          "type": "string",
+          "description": "Masked Aadhaar or Officer ID"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number"
+        },
+        "location": {
+          "type": "string",
+          "description": "Ward, district and state"
+        },
+        "department": {
+          "type": "string",
+          "description": "Government department for officer/admin accounts"
+        },
+        "designation": {
+          "type": "string",
+          "description": "Designation for officer/admin accounts"
+        },
+        "employeeCode": {
+          "type": "string",
+          "description": "Official employee code for officer/admin accounts"
+        },
+        "avatarText": {
+          "type": "string",
+          "description": "Initials avatar text"
+        },
+        "nagrikPoints": {
+          "type": "number",
+          "description": "Civic points accumulated through citizen contributions"
+        },
+        "nagrikPosition": {
+          "type": "string",
+          "description": "Citizen ranking title such as Best Nagrik or Adarsh Nagrik"
+        },
+        "nagrikBadges": {
+          "type": "array",
+          "description": "List of civic achievement badge keys earned"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of registration"
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "description": "ISO timestamp of last login"
+        }
+      }
+    },
+    "grievances": {
+      "description": "Civic grievances filed by citizens or officers",
+      "fields": {
+        "title": {
+          "type": "string",
+          "description": "Title of the grievance",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed grievance description",
+          "required": true
+        },
+        "category": {
+          "type": "string",
+          "description": "Civic grievance category",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "description": "Workflow resolution status",
+          "required": true,
+          "values": ["Pending", "Assigned", "Work In Progress", "Resolved & Verified"]
+        },
+        "district": {
+          "type": "string",
+          "description": "District location",
+          "required": true
+        },
+        "state": {
+          "type": "string",
+          "description": "State name",
+          "required": true
+        },
+        "userId": {
+          "type": "string",
+          "description": "Author UID",
+          "required": true
+        },
+        "videoUrl": {
+          "type": "string",
+          "description": "Optional civic video evidence URL"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Primary complaint photo URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp"
+        }
+      }
+    },
+    "admin_audit_logs": {
+      "description": "Immutable audit log of administrative deletions and purges",
+      "fields": {
+        "action": {
+          "type": "string",
+          "description": "Action performed (e.g. DELETE_COMPLAINT, DELETE_VIDEO)",
+          "required": true
+        },
+        "targetId": {
+          "type": "string",
+          "description": "Target grievance ID or token",
+          "required": true
+        },
+        "reason": {
+          "type": "string",
+          "description": "Administrative justification",
+          "required": true
+        },
+        "adminEmail": {
+          "type": "string",
+          "description": "Email of admin who performed action",
+          "required": true
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "ISO timestamp of the event",
+          "required": true
+        }
+      }
+    }
+  }
+}
